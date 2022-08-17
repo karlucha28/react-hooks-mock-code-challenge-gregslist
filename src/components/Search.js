@@ -1,21 +1,21 @@
 import React from "react";
 
-function Search() {
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log("submitted");
-  }
+function Search({callbackFromHeader, search, callbackFromHeadeSubmit}) {
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   console.log("submitted");
+  // }
 
   return (
-    <form className="searchbar" onSubmit={handleSubmit}>
+    <form className="searchbar" onSubmit={callbackFromHeadeSubmit}>
       <input
         type="text"
         id="search"
         placeholder="search free stuff"
-        value={""}
-        onChange={(e) => console.log(e.target.value)}
+        value={search}
+        onChange={(e) => callbackFromHeader(e.target.value)}
       />
-      <button type="submit">🔍</button>
+      <button type="submit" >🔍</button>
     </form>
   );
 }
